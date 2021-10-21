@@ -10,7 +10,7 @@ import com.williammahecha.models.Mensaje;
 import com.williammahecha.repositories.RepositorioMensaje;
 
 @Service
-public class ServiciosMensajes {
+public class ServiciosMensaje {
 	@Autowired
 	private RepositorioMensaje crud;
 	
