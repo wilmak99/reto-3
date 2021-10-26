@@ -95,7 +95,7 @@ function editarCliente(idCliente) {
             var data = JSON.stringify(cliente);
             $.ajax({
                 data: data,
-                url: "http://localhost:8080/api/Client/update",
+                url: "http://129.151.124.116:8080/api/Client/update",
                 type: 'PUT',
                 async: true,
                 contentType:'application/json',
