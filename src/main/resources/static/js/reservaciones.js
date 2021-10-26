@@ -7,7 +7,7 @@
 /////*      Carga tabla con los datos de las motocicletas     */////
 $.ajax({
     method: "GET",
-    url: "http://localhost:8080/api/Reservation/all",
+    url: "http://129.151.124.116:8080/api/Reservation/all",
 })
 .done(function(data) {
     if (data.length > 0) {
@@ -41,7 +41,7 @@ function registro(tag){
     var data = JSON.stringify(reserva);
     $.ajax({
         data: data,
-        url: "http://localhost:8080/api/Reservation/save",
+        url: "http://129.151.124.116:8080/api/Reservation/save",
         type:'POST',
         async: true,
         contentType:'application/json',
@@ -69,7 +69,7 @@ function edReserva(idReserva, fila) {
 
     $.ajax({
         method: "GET",
-        url: "http://localhost:8080/api/Reservation/" + idReserva,
+        url: "http://129.151.124.116:8080/api/Reservation/" + idReserva,
     })
     .done(function(data) {
         var fechaInicio = data['startDate'];
@@ -108,7 +108,7 @@ function editarReserva(idReserva) {
             var data = JSON.stringify(reserva);
             $.ajax({
                 data: data,
-                url: "http://localhost:8080/api/Reservation/update",
+                url: "http://129.151.124.116:8080/api/Reservation/update",
                 type: 'PUT',
                 async: true,
                 contentType:'application/json',
@@ -143,7 +143,7 @@ function elReserva(idReserva) {
     }).then((result) => {
         if (result.value) {
             $.ajax({
-                url: "http://localhost:8080/api/Reservation/" + idReserva,
+                url: "http://129.151.124.116:8080/api/Reservation/" + idReserva,
                 type: 'DELETE',
                 async: true,
                 contentType:'application/json',

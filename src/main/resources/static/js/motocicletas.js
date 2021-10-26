@@ -7,7 +7,7 @@
 /////*      Carga tabla con los datos de las motocicletas     */////
 $.ajax({
     method: "GET",
-    url: "http://localhost:8080/api/Motorbike/all",
+    url: "http://129.151.124.116:8080/api/Motorbike/all",
 })
 .done(function(data) {
     if (data.length > 0) {
@@ -40,7 +40,7 @@ function registro(tag){
     var data = JSON.stringify(moto);
     $.ajax({
         data: data,
-        url: "http://localhost:8080/api/Motorbike/save",
+        url: "http://129.151.124.116:8080/api/Motorbike/save",
         type:'POST',
         async: true,
         contentType:'application/json',
@@ -68,7 +68,7 @@ function edMoto(idMoto, fila) {
 
     $.ajax({
         method: "GET",
-        url: "http://localhost:8080/api/Motorbike/" + idMoto,
+        url: "http://129.151.124.116:8080/api/Motorbike/" + idMoto,
     })
     .done(function(data) {
         $('#listMotocicletas').append('<tr align="center"><td><input type="text" value="' + data['brand'] + '" id="editBrand' + data['id'] + '"</td><td><input type="number" value="' + data['year'] + '" id="editModel' + data['id'] + '"</td><td><input type="number" value="' + data['category']['id'] + '" id="editCategory' + data['id'] + '"</td><td><input type="text" value="' + data['name'] + '" id="editName' + data['id'] + '"</td><td><input type="text" value="' + data['description'] + '" id="editDescription' + data['id'] + '"</td><td><img src="img/aceptar.png" alt="aceptar" width="40" height="40" onclick="editarMoto(' + data['id'] + ')"/></td></tr>')
@@ -102,7 +102,7 @@ function editarMoto(idMoto) {
             var data = JSON.stringify(moto);
             $.ajax({
                 data: data,
-                url: "http://localhost:8080/api/Motorbike/update",
+                url: "http://129.151.124.116:8080/api/Motorbike/update",
                 type: 'PUT',
                 async: true,
                 contentType:'application/json',
@@ -137,7 +137,7 @@ function elMoto(idMoto) {
     }).then((result) => {
         if (result.value) {
             $.ajax({
-                url: "http://localhost:8080/api/Motorbike/" + idMoto,
+                url: "http://129.151.124.116:8080/api/Motorbike/" + idMoto,
                 type: 'DELETE',
                 async: true,
                 contentType:'application/json',

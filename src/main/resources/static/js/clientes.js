@@ -7,7 +7,7 @@
 /////*      Carga tabla con los datos de los Clientes     */////
 $.ajax({
     method: "GET",
-    url: "http://localhost:8080/api/Client/all",
+    url: "http://129.151.124.116:8080/api/Client/all",
 })
 .done(function(data) {
     if (data.length > 0) {
@@ -37,7 +37,7 @@ function registro(tag){
     var data = JSON.stringify(clientes);
     $.ajax({
         data: data,
-        url: "http://localhost:8080/api/Client/save",
+        url: "http://129.151.124.116:8080/api/Client/save",
         type:'POST',
         async: true,
         contentType:'application/json',
@@ -64,7 +64,7 @@ function edCliente(idCliente, fila) {
     seleccion.remove();
     $.ajax({
         method: "GET",
-        url: "http://localhost:8080/api/Client/" + idCliente,
+        url: "http://129.151.124.116:8080/api/Client/" + idCliente,
     })
     .done(function(data) {
         $('#listClientes').append('<tr align="center"><td><input type="text" value="' + data['name'] + '" id="editName' + data['idClient'] + '"</td><td><input type="email" value="' + data['email'] + '" id="editEmail' + data['idClient'] + '"</td><td><input type="text" value="' + data['password'] + '" id="editPassword' + data['idClient'] + '"</td><td><input type="number" value="' + data['age'] + '" id="editAge' + data['idClient'] + '"</td><td><img src="img/aceptar.png" alt="aceptar" width="40" height="40" onclick="editarCliente(' + data['idClient'] + ')"/></td></tr>')
@@ -129,7 +129,7 @@ function elCliente(idCliente) {
     }).then((result) => {
         if (result.value) {
             $.ajax({
-                url: "http://localhost:8080/api/Client/" + idCliente,
+                url: "http://129.151.124.116:8080/api/Client/" + idCliente,
                 type: 'DELETE',
                 async: true,
                 contentType:'application/json',

@@ -7,7 +7,7 @@
 /////*      Carga tabla con los datos de los Mensajes     */////
 $.ajax({
     method: "GET",
-    url: "http://localhost:8080/api/Message/all",
+    url: "http://129.151.124.116:8080/api/Message/all",
 })
 .done(function(data) {
     if (data.length > 0) {
@@ -40,7 +40,7 @@ function registro(tag){
     var data = JSON.stringify(mensaje);
     $.ajax({
         data: data,
-        url: "http://localhost:8080/api/Message/save",
+        url: "http://129.151.124.116:8080/api/Message/save",
         type:'POST',
         async: true,
         contentType:'application/json',
@@ -67,7 +67,7 @@ function edMensaje(idMensaje, fila) {
     seleccion.remove();
     $.ajax({
         method: "GET",
-        url: "http://localhost:8080/api/Message/" + idMensaje,
+        url: "http://129.151.124.116:8080/api/Message/" + idMensaje,
     })
     .done(function(data) {
         $('#listMensajes').append('<tr align="center"><td><input type="text" value="' + data['messageText'] + '" id="editMensaje' + data['idMessage'] + '"</td><td><input type="text" value="' + data['client']['name'] + '" id="editClient' + data['idMessage'] + '"</td><td><input type="text" value="' + data['motorbike']['brand'] + '" id="editMotorbike' + data['idMessage'] + '"</td><td><img src="img/aceptar.png" alt="aceptar" width="40" height="40" onclick="editarMensaje(' + data['idMessage'] + ')"/></td></tr>')
@@ -101,7 +101,7 @@ function editarMensaje(idMensaje) {
             var data = JSON.stringify(mensaje);
             $.ajax({
                 data: data,
-                url: "http://localhost:8080/api/Message/update",
+                url: "http://129.151.124.116:8080/api/Message/update",
                 type: 'PUT',
                 async: true,
                 contentType:'application/json',
@@ -135,7 +135,7 @@ function elMensaje(idMensaje) {
     }).then((result) => {
         if (result.value) {
             $.ajax({
-                url: "http://localhost:8080/api/Message/" + idMensaje,
+                url: "http://129.151.124.116:8080/api/Message/" + idMensaje,
                 type: 'DELETE',
                 async: true,
                 contentType:'application/json',

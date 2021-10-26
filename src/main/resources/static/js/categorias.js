@@ -7,7 +7,7 @@
 /////*      Carga tabla con los datos de las categorias     */////
 $.ajax({
     method: "GET",
-    url: "http://localhost:8080/api/Category/all",
+    url: "http://129.151.124.116:8080/api/Category/all",
 })
 .done(function(data) {
     if (data.length > 0) {
@@ -35,7 +35,7 @@ function registro(tag){
     var data = JSON.stringify(categoria);
     $.ajax({
         data: data,
-        url:"http://localhost:8080/api/Category/save",
+        url:"http://129.151.124.116:8080/api/Category/save",
         type:'POST',
         async: true,
         contentType:'application/json',
@@ -62,7 +62,7 @@ function edCategoria(idCategoria, fila) {
     seleccion.remove();
     $.ajax({
         method: "GET",
-        url:"http://localhost:8080/api/Category/" + idCategoria,
+        url:"http://129.151.124.116:8080/api/Category/" + idCategoria,
     })
     .done(function(data) {
         $('#listCategorias').append('<tr align="center"><td><input type="text" value="' + data['name'] + '" id="editName' + data['id'] + '"</td><td><input type="text" value="' + data['description'] + '" id="editDescription' + data['id'] + '"</td><td><img src="img/aceptar.png" alt="aceptar" width="40" height="40" onclick="editarCategoria(' + data['id'] + ')"/></td></tr>')
@@ -91,7 +91,7 @@ function editarCategoria(idCategoria) {
             var data = JSON.stringify(categoria);
             $.ajax({
                 data: data,
-                url:"http://localhost:8080/api/Category/update",
+                url:"http://129.151.124.116:8080/api/Category/update",
                 type: 'PUT',
                 async: true,
                 contentType:'application/json',
@@ -126,7 +126,7 @@ function elCategoria(idCategoria) {
     }).then((result) => {
         if (result.value) {
             $.ajax({
-                url:"http://localhost:8080/api/Category/" + idCategoria,
+                url:"http://129.151.124.116:8080/api/Category/" + idCategoria,
                 type: 'DELETE',
                 async: true,
                 contentType:'application/json',
