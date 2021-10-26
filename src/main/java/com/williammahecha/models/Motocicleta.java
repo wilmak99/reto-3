@@ -21,9 +21,9 @@ public class Motocicleta implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	private String name;
 	private String brand;
 	private Integer year;
-	private String name;
 	private String description;
 	
 	@ManyToOne
@@ -47,6 +47,15 @@ public class Motocicleta implements Serializable{
 		this.id = id;
 	}
 
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	public String getBrand() {
 		return brand;
 	}
@@ -61,14 +70,6 @@ public class Motocicleta implements Serializable{
 
 	public void setYear(Integer year) {
 		this.year = year;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getDescription() {
