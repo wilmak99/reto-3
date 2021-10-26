@@ -33,7 +33,6 @@ public class ServiciosMensaje {
 				return mensaje;
 			}
 		}
-		
 	}
 	
 	public Mensaje update(Mensaje mensaje) {
@@ -41,7 +40,7 @@ public class ServiciosMensaje {
 			return mensaje;
 		} else {
 			Optional<Mensaje> e=crud.getMessage(mensaje.getIdMessage());
-			if(e.isEmpty()) {
+			if(!e.isEmpty()) {
 				if (mensaje.getMessageText() != null) {
 					e.get().setMessageText(mensaje.getMessageText());
 				}

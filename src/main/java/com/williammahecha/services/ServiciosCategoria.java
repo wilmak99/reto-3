@@ -41,7 +41,7 @@ public class ServiciosCategoria {
 			return categoria;
 		} else {
 			Optional<Categoria> e=crud.getCategory(categoria.getId());
-			if(e.isEmpty()) {
+			if(!e.isEmpty()) {
 				if (categoria.getName() != null) {
 					e.get().setName(categoria.getName());
 				}

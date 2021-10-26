@@ -41,7 +41,7 @@ public class ServiciosReservacion {
 			return reservacion;
 		} else {
 			Optional<Reservacion> e=crud.getReservation(reservacion.getIdReservation());
-			if(e.isEmpty()) {
+			if(!e.isEmpty()) {
 				if (reservacion.getStartDate() != null) {
 					e.get().setStartDate(reservacion.getStartDate());
 				}

@@ -41,7 +41,7 @@ public class ServiciosMotocicleta {
 			return motocicleta;
 		} else {
 			Optional<Motocicleta> e=crud.getMotorbike(motocicleta.getId());
-			if(e.isEmpty()) {
+			if(!e.isEmpty()) {
 				if (motocicleta.getName() != null) {
 					e.get().setName(motocicleta.getName());
 				}

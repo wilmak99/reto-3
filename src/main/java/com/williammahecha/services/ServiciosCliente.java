@@ -41,7 +41,7 @@ public class ServiciosCliente {
 			return cliente;
 		} else {
 			Optional<Cliente> e=crud.getClient(cliente.getIdClient());
-			if(e.isEmpty()) {
+			if(!e.isEmpty()) {
 				if (cliente.getName() != null) {
 					e.get().setName(cliente.getName());
 				}
