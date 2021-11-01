@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.williammahecha.models.Reservacion;
+import com.williammahecha.reports.CountClient;
+import com.williammahecha.reports.ReservationStatus;
 import com.williammahecha.services.ServiciosReservacion;
 
 @RestController
@@ -54,4 +56,19 @@ public class ControladorReservacion {
 	public boolean delete(@PathVariable("id") int reservacionId) {
 		return servicio.delete(reservacionId);
 	}
+	
+	@GetMapping("/report-status")
+    public ReservationStatus getReservationsStatusReport(){
+        return servicio.getReservationStatusReport();
+    }
+
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservacion> getReservationReportDate(@PathVariable("dateOne") String dateOne, @PathVariable("dateTwo") String dateTwo){
+        return servicio.getReservationPeriod(dateOne,dateTwo);
+    }
+
+    @GetMapping("/report-clients")
+    public List<CountClient> getClients(){
+        return servicio.getTopClients();
+    }
 }
